@@ -1,0 +1,22 @@
+name: CI/CD Pipeline
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: npm install  # Change this for different projects
+
+      - name: Run Tests
+        run: npm test  # Replace with your test command
+
+      - name: Build Application
+        run: npm run build  # Change this based on your stack
+
+      - name: Deploy (Optional)
+        run: echo "Deploying to production..."
